@@ -1,4 +1,4 @@
-```tsx
+
 import React, { useState } from 'react';
 import Character, { GeneratedImage, AspectRatio } from './types';
 import { fileToBase64, downloadImage, getFormattedDate } from './utils/fileUtils';
