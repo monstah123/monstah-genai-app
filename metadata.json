@@ -1,0 +1,5 @@
+{
+  "name": "Build a Tech Tool: Consistent Character Generator",
+  "description": "An AI-powered tool to generate consistent cartoon or stylized characters using Gemini. Users can upload reference images and generate multiple story images based on a list of prompts in a single batch.",
+  "requestFramePermissions": []
+}

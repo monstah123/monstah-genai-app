@@ -1,0 +1,16 @@
+# Dependencies Folder - Huge! Netlify will install this automatically.
+/node_modules
+
+# Build Output Folder - Netlify will generate this itself using 'npm run build'.
+/dist
+/build
+
+# CRITICAL SECURITY LINES
+# Do NOT upload local environment files, especially those with API keys.
+.env
+.env.local
+.env.*.local
+
+# Common Editor/System Files
+.vscode/
+.DS_Store
