@@ -1,3 +1,4 @@
+```tsx
 import React, { useState } from 'react';
 import Character, { GeneratedImage, AspectRatio } from './types';
 import { fileToBase64, downloadImage, getFormattedDate } from './utils/fileUtils';
@@ -301,7 +302,7 @@ const App: React.FC = () => {
     );
   };
 
-  const getRatioString = (ratio: AspectRatio, custom: { width: number; height: number}) => {
+  const getRatioString = (ratio: AspectRatio, custom: { width: number; height: number }) => {
     if (ratio === 'Custom') {
         return `${custom.width}:${custom.height}`;
     }
@@ -325,7 +326,7 @@ const App: React.FC = () => {
 
     const generationTasks: Promise<GeneratedImage | null>[] = [];
 
-    parsedPrompts.forEach((prompt) => {
+    parsedPrompts.forEach((prompt, pIndex) => {
         for (let i = 0; i < numberOfImages; i++) {
             const task = generateImage(prompt, selectedCharacters, currentRatio, imageStyle)
                 .then(base64 => ({ 
@@ -826,3 +827,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+```
