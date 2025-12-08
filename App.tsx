@@ -3,8 +3,6 @@ import Character, { GeneratedImage, AspectRatio } from './types';
 import { fileToBase64, downloadImage, getFormattedDate } from './utils/fileUtils';
 import { generateImage, generateItemSwap, generateFaceSwap, removeImageBackground } from './services/geminiService';
 
-// 2. PASTE THE START OF THE APP COMPONENT HERE:
-const App: React.FC = () => {
 // --- Helper & Icon Components (defined outside main component) ---
 
 const UploadIcon = () => (
@@ -190,7 +188,7 @@ const SingleImageUpload: React.FC<SingleImageUploadProps> = ({ label, image, onU
             </div>
         </div>
     );
-}
+};
 
 const SkeletonCard = () => (
     <div className="relative bg-base-200 rounded-lg overflow-hidden shadow-lg aspect-square animate-pulse border border-base-300">
@@ -308,7 +306,7 @@ const App: React.FC = () => {
         return `${custom.width}:${custom.height}`;
     }
     return ratio;
-  }
+  };
   
   const handleGenerateStory = async () => {
     const parsedPrompts = prompts.split(/[\n,]/).map(p => p.trim()).filter(p => p.length > 0);
@@ -327,11 +325,11 @@ const App: React.FC = () => {
 
     const generationTasks: Promise<GeneratedImage | null>[] = [];
 
-    parsedPrompts.forEach((prompt, pIndex) => {
+    parsedPrompts.forEach((prompt) => {
         for (let i = 0; i < numberOfImages; i++) {
             const task = generateImage(prompt, selectedCharacters, currentRatio, imageStyle)
                 .then(base64 => ({ 
-                    id: Date.now() + Math.random(), // Ensure unique ID with concurrent generations
+                    id: Date.now() + Math.random(),
                     prompt: numberOfImages > 1 ? `${prompt} (v${i+1})` : prompt, 
                     base64 
                 }))
@@ -388,7 +386,7 @@ const App: React.FC = () => {
 
       setGeneratedSwapImages(prev => [...successfulImages, ...prev]);
       setIsLoading(false);
-  }
+  };
 
   const handleGenerateFaceSwap = async () => {
     if (!faceTargetImage || !faceSourceImage) {
@@ -424,7 +422,7 @@ const App: React.FC = () => {
 
     setGeneratedFaceSwapImages(prev => [...successfulImages, ...prev]);
     setIsLoading(false);
-  }
+  };
 
   const handleRemoveBackground = async () => {
     if (!bgRemoveInputImage) {
@@ -447,7 +445,7 @@ const App: React.FC = () => {
     } finally {
         setIsLoading(false);
     }
-  }
+  };
 
   const handleClearAll = () => {
     if (activeTab === 'story') setGeneratedStoryImages([]);
@@ -827,13 +825,4 @@ const App: React.FC = () => {
   );
 };
 
-// 4. PASTE THE RETURN STATEMENT AND ALL YOUR JSX HERE:
-  return (
-    <div className="monstah-app-container">
-      {/* Your entire application's HTML/TSX structure goes here. */}
-    </div>
-  );
-};
-
-// 5. PASTE THE EXPORT STATEMENT HERE:
 export default App;
